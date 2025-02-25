@@ -1,26 +1,37 @@
 plugins {
-    id 'java'
+    id 'java'            // Adds Java plugin to your project
+    id 'application'     // Adds the application plugin to allow running your app
 }
 
-group 'com.example.gridgame'
-version '1.0-SNAPSHOT'
+group = 'com.example.gridgame'    // Set the group ID (your project or company name)
+version = '1.0-SNAPSHOT'          // Set the project version
 
 repositories {
-    mavenCentral()
+    mavenCentral()      // Use Maven Central repository for dependencies
 }
 
 dependencies {
     // Add any dependencies required for your project here
+    // For example, if you need JUnit for testing, you can add:
+    // testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
 }
 
 tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+    options.encoding = 'UTF-8'   // Set the encoding to UTF-8 for all Java compilation tasks
 }
 
+// Define the main class for the application plugin to run
+mainClassName = 'com.example.Main'  // Fully qualified name of your Main class
+
+// Configuration for creating a JAR file with the Main-Class attribute
 jar {
     manifest {
         attributes(
-            'Main-Class': 'Main'
+            'Main-Class': 'com.example.Main'  // Ensure the correct Main class is specified
         )
     }
+}
+
+run {
+    standardInput = System.in
 }

@@ -1,8 +1,10 @@
-public class Character {
+package com.example;
+
+public class GameCharacter {
     private int x;
     private int y;
 
-    public Character(int startX, int startY) {
+    public GameCharacter(int startX, int startY) {
         this.x = startX;
         this.y = startY;
     }
@@ -29,13 +31,5 @@ public class Character {
 
     public int getY() {
         return y;
-    }
-
-    public void interactWith(Object obj) {
-        if (obj instanceof Fence) {
-            // Logic for interacting with a fence
-        } else if (obj instanceof Animal) {
-            // Logic for interacting with an animal
-        }
     }
 }

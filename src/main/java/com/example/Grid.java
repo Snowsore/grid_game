@@ -1,3 +1,5 @@
+package com.example;
+
 public class Grid {
     private int width;
     private int height;
@@ -38,5 +40,12 @@ public class Grid {
 
     private boolean isWithinBounds(int x, int y) {
         return x >= 0 && x < width && y >= 0 && y < height;
+    }
+
+    public boolean isValidPosition(int x, int y) {
+        if (x < 0 || y < 0 || x >= width || y >= height) {
+            return false;
+        }
+        return true;
     }
 }
